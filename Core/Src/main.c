@@ -41,7 +41,7 @@
 #endif
 PUTCHAR_PROTOTYPE
 {
-  HAL_UART_Transmit(&huart1 , (uint8_t *)&ch, 1, 0xFFFF);
+  HAL_UART_Transmit(&huart4 , (uint8_t *)&ch, 1, 0xFFFF);
   return ch;
 }
 /* USER CODE END Includes */
@@ -128,7 +128,7 @@ int main(void)
   MX_SPI4_Init();
   MX_SPI5_Init();
   MX_SPI6_Init();
-  MX_USART1_UART_Init();
+  MX_UART4_Init();
   /* USER CODE BEGIN 2 */
 reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
   reg_wizchip_spi_cbfunc(W5500_ReadByte, W5500_WriteByte);
@@ -167,7 +167,7 @@ reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
 //     printf("Temp: %2.1f \r\n", d.temp );
  
     
-    if( (retr = loopback_tcps(SOCK_UDP, gDATABUF, 5000)) < 0) {
+    if( (retr = loopback_udps(SOCK_UDP, gDATABUF, 5000)) < 0) {
       printf("SOCKET ERROR : %ld\r\n", retr);
     }
 

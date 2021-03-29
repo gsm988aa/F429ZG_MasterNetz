@@ -32,7 +32,8 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-
+#define SPI2_CS_Pin GPIO_PIN_0
+#define SPI2_CS_GPIO_Port GPIOG
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);
