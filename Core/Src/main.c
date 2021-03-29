@@ -53,6 +53,16 @@ PUTCHAR_PROTOTYPE
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+
+
+
+
+
+
+
+
+#define SOCK_TCPS        1
+#define SOCK_UDPS        0
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -81,6 +91,11 @@ void W5500_Unselect(void);
 void W5500_ReadBuff(uint8_t* buff, uint16_t len);
 void W5500_WriteBuff(uint8_t* buff, uint16_t len);
 uint8_t W5500_ReadByte(void);
+
+void spi_wb(uint8_t b);
+uint8_t spi_rb(void);
+
+
 void W5500_WriteByte(uint8_t byte);
 void network_init(void);
 /* USER CODE END PFP */
@@ -97,10 +112,17 @@ void network_init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-    uint8_t tmp;
+  uint8_t tmp;
  int32_t retr = 0;
-  uint8_t memsize[2][8] = {{2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2}};
+ uint8_t memsize[2][8] = {{2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2}};
   
+
+ uint8_t retVal, sockStatus;
+ int16_t rcvLen;
+ uint8_t rcvBuf[20], bufSize[] = {2, 2, 2, 2};
+
+
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -130,12 +152,13 @@ int main(void)
   MX_SPI6_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
-  reg_wizchip_spi_cbfunc(W5500_ReadByte, W5500_WriteByte);
-  reg_wizchip_spiburst_cbfunc(W5500_ReadBuff, W5500_WriteBuff);
-  
-  
-  
+
+  reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
+  reg_wizchip_spi_cbfunc(spi_rb, spi_wb);
+  reg_wizchip_spiburst_cbfunc(spi_rb, spi_wb);
+
+
+
   /* WIZCHIP SOCKET Buffer initialize */
   if(ctlwizchip(CW_INIT_WIZCHIP,(void*)memsize) == -1)
   {
@@ -149,8 +172,10 @@ reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
      if(ctlwizchip(CW_GET_PHYLINK, (void*)&tmp) == -1)
         printf("Unknown PHY Link stauts.\r\n");
   }while(tmp == PHY_LINK_OFF);
-  printf("SOCKET ERROR =1");
+
   network_init();
+
+  
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -158,18 +183,21 @@ reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
   while (1)
   {
 
+//      printf("enter while\r\n");
 
 
-
-      HAL_Delay(500);
+//      HAL_Delay(500);
      
 //    DHT_data d = DHT_getData(DHT22);
 //     printf("Temp: %2.1f \r\n", d.temp );
  
-    
-    if( (retr = loopback_udps(SOCK_UDP, gDATABUF, 5000)) < 0) {
-      printf("SOCKET ERROR : %ld\r\n", retr);
-    }
+		if( (retr = loopback_tcps(SOCK_TCPS, gDATABUF, 5000)) < 0) {
+    printf("SOCKET ERROR : %ld\r\n", retr);
+  }
+
+		if( (retr = loopback_udps(SOCK_UDPS, gDATABUF, 3000)) < 0) {
+			printf("SOCKET ERROR : %ld\r\n", retr);
+		}
 
     /* USER CODE END WHILE */
 
@@ -219,11 +247,11 @@ void SystemClock_Config(void)
 
 /* USER CODE BEGIN 4 */
 void W5500_Select(void) {
-  HAL_GPIO_WritePin(SPI2_CS_GPIO_Port, SPI2_CS_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_0, GPIO_PIN_RESET); //CS LOW
 }
 
 void W5500_Unselect(void) {
-  HAL_GPIO_WritePin(SPI2_CS_GPIO_Port, SPI2_CS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_0, GPIO_PIN_SET);
 }
 
 void W5500_ReadBuff(uint8_t* buff, uint16_t len) {
@@ -233,7 +261,15 @@ void W5500_ReadBuff(uint8_t* buff, uint16_t len) {
 void W5500_WriteBuff(uint8_t* buff, uint16_t len) {
   HAL_SPI_Transmit(&hspi2, buff, len, HAL_MAX_DELAY);
 }
+uint8_t spi_rb(void) {
+	uint8_t rbuf;
+	HAL_SPI_Receive(&hspi2, &rbuf, 1, 0xFFFFFFFF);
+	return rbuf;
+}
 
+void spi_wb(uint8_t b) {
+	HAL_SPI_Transmit(&hspi2, &b, 1, 0xFFFFFFFF);
+}
 uint8_t W5500_ReadByte(void) {
   uint8_t byte;
   W5500_ReadBuff(&byte, sizeof(byte));

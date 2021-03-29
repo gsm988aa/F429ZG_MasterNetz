@@ -129,7 +129,7 @@ void 	wizchip_spi_writebyte(uint8_t wb) {}
  * @note This function help not to access wrong address. If you do not describe this function or register any functions,
  * null function is called.
  */
-//void 	wizchip_spi_readburst(uint8_t* pBuf, uint16_t len) 	{}; 
+//void 	wizchip_spi_readburst(uint8_t* pBuf, uint16_t len) 	{};
 void 	wizchip_spi_readburst(uint8_t* pBuf, uint16_t len) 	{}
 
 /**
@@ -176,7 +176,7 @@ _WIZCHIP  WIZCHIP =
     },
     {
         {
-            //M20150601 : Rename the function 
+            //M20150601 : Rename the function
             //wizchip_bus_readbyte,
             //wizchip_bus_writebyte
             wizchip_bus_readdata,

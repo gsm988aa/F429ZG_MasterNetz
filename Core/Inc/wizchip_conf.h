@@ -65,11 +65,11 @@ extern "C" {
  *       ex> <code> #define \_WIZCHIP_      W5500 </code>
  */
 
-#define W5100           5100
-#define W5100S            5100+5
-#define W5200           5200
-#define W5300           5300
-#define W5500           5500
+#define W5100						5100
+#define W5100S						5100+5
+#define W5200						5200
+#define W5300						5300
+#define W5500						5500
 
 #ifndef _WIZCHIP_
 #define _WIZCHIP_                      W5500   // W5100, W5100S, W5200, W5300, W5500
@@ -96,9 +96,9 @@ extern "C" {
  * @brief Define interface mode.
  * @todo you should select interface mode as chip. Select one of @ref \_WIZCHIP_IO_MODE_SPI_ , @ref \_WIZCHIP_IO_MODE_BUS_DIR_ or @ref \_WIZCHIP_IO_MODE_BUS_INDIR_
  */
-//  #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_DIR_
-//  #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_INDIR_
-       #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_
+// 	#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_DIR_
+//	#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_INDIR_
+   	   #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_
 
 //A20150601 : Define the unit of IO DATA.   
    typedef   uint8_t   iodata_t;
@@ -111,19 +111,19 @@ extern "C" {
 * @brief Define interface mode.
 * @todo you should select interface mode as chip. Select one of @ref \_WIZCHIP_IO_MODE_SPI_ , @ref \_WIZCHIP_IO_MODE_BUS_DIR_ or @ref \_WIZCHIP_IO_MODE_BUS_INDIR_
 */
-//  #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_INDIR_
-  //#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_5500_
-  #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_
+//	#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_INDIR_
+	//#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_5500_
+	#define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_SPI_
 
 //A20150601 : Define the unit of IO DATA.
    typedef   uint8_t   iodata_t;
 //A20150401 : Indclude W5100.h file
-  #include "W5100S/w5100s.h"
+	#include "W5100S/w5100s.h"
 #elif (_WIZCHIP_ == W5200)
    #define _WIZCHIP_ID_                "W5200\0"
 /**
  * @brief Define interface mode.
- * @todo you should select interface mode as chip. Select one of @ref \_WIZCHIP_IO_MODE_SPI_ or @ref \  _WIZCHIP_IO_MODE_BUS_INDIR_
+ * @todo you should select interface mode as chip. Select one of @ref \_WIZCHIP_IO_MODE_SPI_ or @ref \	_WIZCHIP_IO_MODE_BUS_INDIR_
  */
 #ifndef _WIZCHIP_IO_MODE_
 // #define _WIZCHIP_IO_MODE_           _WIZCHIP_IO_MODE_BUS_INDIR_
@@ -179,7 +179,7 @@ extern "C" {
    #elif _WIZCHIP_IO_BUS_WIDTH_ == 16
       typedef   uint16_t   iodata_t;
    #else
-      #error "Unknown _WIZCHIP_IO_BUS_WIDTH_. It should be 8 or 16."  
+      #error "Unknown _WIZCHIP_IO_BUS_WIDTH_. It should be 8 or 16."
    #endif
 //
    #include "W5300/w5300.h"
@@ -198,9 +198,9 @@ extern "C" {
  *       ex> <code> #define \_WIZCHIP_IO_BASE_      0x00008000 </code>
  */
 #if _WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_BUS_
-  #define _WIZCHIP_IO_BASE_       0x60000000  // for 5100S IND
+	#define _WIZCHIP_IO_BASE_				0x60000000	// for 5100S IND
 #elif _WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_
-  #define _WIZCHIP_IO_BASE_       0x00000000  // for 5100S SPI
+	#define _WIZCHIP_IO_BASE_				0x00000000	// for 5100S SPI
 #endif
 
 #ifndef _WIZCHIP_IO_BASE_
@@ -253,7 +253,7 @@ typedef struct __WIZCHIP
     * The set of interface IO callback func.
     */
    union _IF
-   {   
+   {
       /**
        * For BUS interface IO
        */
