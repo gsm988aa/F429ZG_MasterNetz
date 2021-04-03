@@ -1,8 +1,8 @@
 spi.c:41:6:MX_SPI1_Init	8	static
-spi.c:72:6:MX_SPI2_Init	8	static
-spi.c:104:6:MX_SPI3_Init	8	static
-spi.c:135:6:MX_SPI4_Init	8	static
-spi.c:166:6:MX_SPI5_Init	8	static
-spi.c:197:6:MX_SPI6_Init	8	static
-spi.c:228:6:HAL_SPI_MspInit	88	static
-spi.c:506:6:HAL_SPI_MspDeInit	16	static
+spi.c:73:6:MX_SPI2_Init	8	static
+spi.c:105:6:MX_SPI3_Init	8	static
+spi.c:136:6:MX_SPI4_Init	8	static
+spi.c:167:6:MX_SPI5_Init	8	static
+spi.c:198:6:MX_SPI6_Init	8	static
+spi.c:229:6:HAL_SPI_MspInit	88	static
+spi.c:507:6:HAL_SPI_MspDeInit	16	static

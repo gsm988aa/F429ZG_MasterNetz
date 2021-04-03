@@ -22,5 +22,19 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
+Core/ioLibrary_Driver/Application/loopback \
+Core/ioLibrary_Driver/Ethernet/W5100 \
+Core/ioLibrary_Driver/Ethernet/W5200 \
+Core/ioLibrary_Driver/Ethernet/W5300 \
+Core/ioLibrary_Driver/Ethernet/W5500 \
+Core/ioLibrary_Driver/Ethernet \
+Core/ioLibrary_Driver/Internet/DHCP \
+Core/ioLibrary_Driver/Internet/DNS \
+Core/ioLibrary_Driver/Internet/FTPClient \
+Core/ioLibrary_Driver/Internet/FTPServer \
+Core/ioLibrary_Driver/Internet/SNMP \
+Core/ioLibrary_Driver/Internet/SNTP \
+Core/ioLibrary_Driver/Internet/TFTP \
+Core/ioLibrary_Driver/Internet/httpServer \
 Drivers/STM32F4xx_HAL_Driver \
 

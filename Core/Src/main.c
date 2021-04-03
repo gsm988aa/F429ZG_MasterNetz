@@ -61,8 +61,8 @@ PUTCHAR_PROTOTYPE
 
 
 
-#define SOCK_TCPS        1
-#define SOCK_UDPS        0
+#define SOCK_TCPS        0
+#define SOCK_UDPS        1
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -74,9 +74,9 @@ PUTCHAR_PROTOTYPE
 
 /* USER CODE BEGIN PV */
 wiz_NetInfo gWIZNETINFO = { .mac = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05},
-                            .ip = {192, 168, 0, 88},
+                            .ip = {192, 168, 1, 88},
                             .sn = {255, 255, 255, 0},
-                            .gw = {192, 168, 0, 1},
+                            .gw = {192, 168, 1, 1},
                             .dns = {8, 8, 8, 8},
                             .dhcp = NETINFO_STATIC };
 
@@ -86,18 +86,84 @@ uint8_t gDATABUF[2048];
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void W5500_Select(void);
-void W5500_Unselect(void);
-void W5500_ReadBuff(uint8_t* buff, uint16_t len);
-void W5500_WriteBuff(uint8_t* buff, uint16_t len);
-uint8_t W5500_ReadByte(void);
+//void W5500_Select(void);
+//void W5500_Unselect(void);
+//void W5500_ReadBuff(uint8_t* buff, uint16_t len);
+//void W5500_WriteBuff(uint8_t* buff, uint16_t len);
+//uint8_t W5500_ReadByte(void);
+//void W5500_WriteByte(uint8_t byte);
+//void network_init(void);
+//
+//
+//
+//
+//void W5500_WriteByte(uint8_t byte);
+//void network_init(void);
 
-void spi_wb(uint8_t b);
-uint8_t spi_rb(void);
+uint8_t W5500_ReadByte(void) {
+  uint8_t byte;
+  W5500_ReadBuff(&byte, sizeof(byte));
+  return byte;
+}
+
+void W5500_WriteByte(uint8_t byte) {
+  W5500_WriteBuff(&byte, sizeof(byte));
+}
+
+void W5500_Select(void) {
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET); //CS LOW
+}
+
+void W5500_Unselect(void) {
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+}
+
+void W5500_ReadBuff(uint8_t* buff, uint16_t len) {
+  HAL_SPI_Receive(&hspi1, buff, len, HAL_MAX_DELAY);
+}
+
+void W5500_WriteBuff(uint8_t* buff, uint16_t len) {
+  HAL_SPI_Transmit(&hspi1, buff, len, HAL_MAX_DELAY);
+}
+//uint8_t spi_rb(void) {
+//	uint8_t rbuf;
+//	HAL_SPI_Receive(&hspi1, &rbuf, 1, 0xFFFFFFFF);
+//	return rbuf;
+//}
+//
+//void spi_wb(uint8_t b) {
+//	HAL_SPI_Transmit(&hspi1, &b, 1, 0xFFFFFFFF);
+//}
+//uint8_t W5500_ReadByte(void) {
+//  uint8_t byte;
+//  W5500_ReadBuff(&byte, sizeof(byte));
+//  return byte;
+//}
+//
+//void W5500_WriteByte(uint8_t byte) {
+//  W5500_WriteBuff(&byte, sizeof(byte));
+//}
+
+void network_init(void)
+{
+  uint8_t tmpstr[6];
+  ctlnetwork(CN_SET_NETINFO, (void*)&gWIZNETINFO);
+  ctlnetwork(CN_GET_NETINFO, (void*)&gWIZNETINFO);
+
+  // Display Network Information
+  ctlwizchip(CW_GET_ID,(void*)tmpstr);
+  printf("\r\n=== %s NET CONF ===\r\n",(char*)tmpstr);
+  printf("MAC: %02X:%02X:%02X:%02X:%02X:%02X\r\n",gWIZNETINFO.mac[0],gWIZNETINFO.mac[1],gWIZNETINFO.mac[2],gWIZNETINFO.mac[3],gWIZNETINFO.mac[4],gWIZNETINFO.mac[5]);
+  printf("SIP: %d.%d.%d.%d\r\n", gWIZNETINFO.ip[0],gWIZNETINFO.ip[1],gWIZNETINFO.ip[2],gWIZNETINFO.ip[3]);
+  printf("GAR: %d.%d.%d.%d\r\n", gWIZNETINFO.gw[0],gWIZNETINFO.gw[1],gWIZNETINFO.gw[2],gWIZNETINFO.gw[3]);
+  printf("SUB: %d.%d.%d.%d\r\n", gWIZNETINFO.sn[0],gWIZNETINFO.sn[1],gWIZNETINFO.sn[2],gWIZNETINFO.sn[3]);
+  printf("DNS: %d.%d.%d.%d\r\n", gWIZNETINFO.dns[0],gWIZNETINFO.dns[1],gWIZNETINFO.dns[2],gWIZNETINFO.dns[3]);
+  printf("======================\r\n");
+}
 
 
-void W5500_WriteByte(uint8_t byte);
-void network_init(void);
+
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -112,14 +178,10 @@ void network_init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-  uint8_t tmp;
- int32_t retr = 0;
- uint8_t memsize[2][8] = {{2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2}};
-  
+	uint8_t tmp;
+  int32_t retr = 0;
+  uint8_t memsize[2][8] = {{2,2,2,2,2,2,2,2},{2,2,2,2,2,2,2,2}};
 
- uint8_t retVal, sockStatus;
- int16_t rcvLen;
- uint8_t rcvBuf[20], bufSize[] = {2, 2, 2, 2};
 
 
 
@@ -152,28 +214,27 @@ int main(void)
   MX_SPI6_Init();
   MX_UART4_Init();
   /* USER CODE BEGIN 2 */
-
-  reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
-  reg_wizchip_spi_cbfunc(spi_rb, spi_wb);
-  reg_wizchip_spiburst_cbfunc(spi_rb, spi_wb);
-
+	reg_wizchip_cs_cbfunc(W5500_Select, W5500_Unselect);
+	reg_wizchip_spi_cbfunc(W5500_ReadByte, W5500_WriteByte);
+	reg_wizchip_spiburst_cbfunc(W5500_ReadBuff, W5500_WriteBuff);
 
 
-  /* WIZCHIP SOCKET Buffer initialize */
-  if(ctlwizchip(CW_INIT_WIZCHIP,(void*)memsize) == -1)
-  {
-     printf("WIZCHIP Initialized fail.\r\n");
-     while(1);
-  }
 
-  /* PHY link status check */
-  do
-  {
-     if(ctlwizchip(CW_GET_PHYLINK, (void*)&tmp) == -1)
-        printf("Unknown PHY Link stauts.\r\n");
-  }while(tmp == PHY_LINK_OFF);
+/* WIZCHIP SOCKET Buffer initialize */
+if(ctlwizchip(CW_INIT_WIZCHIP,(void*)memsize) == -1)
+{
+   printf("WIZCHIP Initialized fail.\r\n");
+   while(1);
+}
 
-  network_init();
+/* PHY link status check */
+do
+{
+   if(ctlwizchip(CW_GET_PHYLINK, (void*)&tmp) == -1)
+      printf("Unknown PHY Link stauts.\r\n");
+}while(tmp == PHY_LINK_OFF);
+	printf("SOCKET ERROR =1");
+network_init();
 
   
   /* USER CODE END 2 */
@@ -218,14 +279,18 @@ void SystemClock_Config(void)
   /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLM = 16;
+  RCC_OscInitStruct.PLL.PLLN = 192;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -234,68 +299,19 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
   {
     Error_Handler();
   }
 }
 
 /* USER CODE BEGIN 4 */
-void W5500_Select(void) {
-	HAL_GPIO_WritePin(GPIOG, GPIO_PIN_0, GPIO_PIN_RESET); //CS LOW
-}
 
-void W5500_Unselect(void) {
-  HAL_GPIO_WritePin(GPIOG, GPIO_PIN_0, GPIO_PIN_SET);
-}
-
-void W5500_ReadBuff(uint8_t* buff, uint16_t len) {
-  HAL_SPI_Receive(&hspi2, buff, len, HAL_MAX_DELAY);
-}
-
-void W5500_WriteBuff(uint8_t* buff, uint16_t len) {
-  HAL_SPI_Transmit(&hspi2, buff, len, HAL_MAX_DELAY);
-}
-uint8_t spi_rb(void) {
-	uint8_t rbuf;
-	HAL_SPI_Receive(&hspi2, &rbuf, 1, 0xFFFFFFFF);
-	return rbuf;
-}
-
-void spi_wb(uint8_t b) {
-	HAL_SPI_Transmit(&hspi2, &b, 1, 0xFFFFFFFF);
-}
-uint8_t W5500_ReadByte(void) {
-  uint8_t byte;
-  W5500_ReadBuff(&byte, sizeof(byte));
-  return byte;
-}
-
-void W5500_WriteByte(uint8_t byte) {
-  W5500_WriteBuff(&byte, sizeof(byte));
-}
-
-void network_init(void)
-{
-  uint8_t tmpstr[6];
-  ctlnetwork(CN_SET_NETINFO, (void*)&gWIZNETINFO);
-  ctlnetwork(CN_GET_NETINFO, (void*)&gWIZNETINFO);
-
-  // Display Network Information
-  ctlwizchip(CW_GET_ID,(void*)tmpstr);
-  printf("\r\n=== %s NET CONF ===\r\n",(char*)tmpstr);
-  printf("MAC: %02X:%02X:%02X:%02X:%02X:%02X\r\n",gWIZNETINFO.mac[0],gWIZNETINFO.mac[1],gWIZNETINFO.mac[2],gWIZNETINFO.mac[3],gWIZNETINFO.mac[4],gWIZNETINFO.mac[5]);
-  printf("SIP: %d.%d.%d.%d\r\n", gWIZNETINFO.ip[0],gWIZNETINFO.ip[1],gWIZNETINFO.ip[2],gWIZNETINFO.ip[3]);
-  printf("GAR: %d.%d.%d.%d\r\n", gWIZNETINFO.gw[0],gWIZNETINFO.gw[1],gWIZNETINFO.gw[2],gWIZNETINFO.gw[3]);
-  printf("SUB: %d.%d.%d.%d\r\n", gWIZNETINFO.sn[0],gWIZNETINFO.sn[1],gWIZNETINFO.sn[2],gWIZNETINFO.sn[3]);
-  printf("DNS: %d.%d.%d.%d\r\n", gWIZNETINFO.dns[0],gWIZNETINFO.dns[1],gWIZNETINFO.dns[2],gWIZNETINFO.dns[3]);
-  printf("======================\r\n");
-}
 /* USER CODE END 4 */
 
 /**

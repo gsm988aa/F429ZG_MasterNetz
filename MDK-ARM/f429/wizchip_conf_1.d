@@ -1,0 +1,6 @@
+f429\wizchip_conf_1.o: ..\Core\ioLibrary_Driver\Ethernet\wizchip_conf.c
+f429\wizchip_conf_1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+f429\wizchip_conf_1.o: ..\Core\ioLibrary_Driver\Ethernet\wizchip_conf.h
+f429\wizchip_conf_1.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+f429\wizchip_conf_1.o: ..\Core\ioLibrary_Driver\Ethernet\W5500/w5500.h
+f429\wizchip_conf_1.o: ..\Core\ioLibrary_Driver\Ethernet\wizchip_conf.h

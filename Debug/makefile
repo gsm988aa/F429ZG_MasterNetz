@@ -10,6 +10,20 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Drivers/STM32F4xx_HAL_Driver/subdir.mk
+-include Core/ioLibrary_Driver/Internet/httpServer/subdir.mk
+-include Core/ioLibrary_Driver/Internet/TFTP/subdir.mk
+-include Core/ioLibrary_Driver/Internet/SNTP/subdir.mk
+-include Core/ioLibrary_Driver/Internet/SNMP/subdir.mk
+-include Core/ioLibrary_Driver/Internet/FTPServer/subdir.mk
+-include Core/ioLibrary_Driver/Internet/FTPClient/subdir.mk
+-include Core/ioLibrary_Driver/Internet/DNS/subdir.mk
+-include Core/ioLibrary_Driver/Internet/DHCP/subdir.mk
+-include Core/ioLibrary_Driver/Ethernet/W5500/subdir.mk
+-include Core/ioLibrary_Driver/Ethernet/W5300/subdir.mk
+-include Core/ioLibrary_Driver/Ethernet/W5200/subdir.mk
+-include Core/ioLibrary_Driver/Ethernet/W5100/subdir.mk
+-include Core/ioLibrary_Driver/Ethernet/subdir.mk
+-include Core/ioLibrary_Driver/Application/loopback/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include subdir.mk

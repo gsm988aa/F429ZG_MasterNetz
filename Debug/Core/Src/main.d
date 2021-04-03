@@ -1,91 +1,95 @@
 Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/core_cm4.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_version.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_compiler.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_gcc.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/mpu_armv7.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/core_cm4.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_version.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_compiler.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_gcc.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/mpu_armv7.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
  ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/spi.h \
- ../Core/Inc/usart.h ../Core/Inc/gpio.h ../Core/Inc/w5500.h \
- ../Core/Inc/wizchip_conf.h ../Core/Inc/w5500.h ../Core/Inc/socket.h \
- ../Core/Inc/wizchip_conf.h ../Core/Inc/loopback.h
+ ../Core/Inc/usart.h ../Core/Inc/gpio.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/socket.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h \
+ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Application/loopback/loopback.h
 
 ../Core/Inc/main.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
 ../Core/Inc/stm32f4xx_hal_conf.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/core_cm4.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/core_cm4.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_version.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_version.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_compiler.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_compiler.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/cmsis_gcc.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/cmsis_gcc.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Include/mpu_armv7.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Include/mpu_armv7.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 
-C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
+C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.1/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:
 
 ../Core/Inc/dma.h:
 
@@ -97,14 +101,14 @@ C:/Users/Administrator/STM32Cube/Repository/STM32Cube_FW_F4_V1.26.0/Drivers/STM3
 
 ../Core/Inc/gpio.h:
 
-../Core/Inc/w5500.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h:
 
-../Core/Inc/wizchip_conf.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h:
 
-../Core/Inc/w5500.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h:
 
-../Core/Inc/socket.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/socket.h:
 
-../Core/Inc/wizchip_conf.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h:
 
-../Core/Inc/loopback.h:
+C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Application/loopback/loopback.h:
