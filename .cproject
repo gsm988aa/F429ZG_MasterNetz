@@ -81,6 +81,8 @@
                                     									
                                     <listOptionValue builtIn="false" value="../Core/Inc"/>
                                     									
+                                    <listOptionValue builtIn="false" value="../Core/ioLibrary_Driver/Application/loopback"/>
+                                    									
                                     <listOptionValue builtIn="false" value="&quot;C:\Users\Administrator\Desktop\F429ZG_MasterNetz\Core\ioLibrary_Driver\Application\loopback&quot;"/>
                                     									
                                     <listOptionValue builtIn="false" value="&quot;C:\Users\Administrator\Desktop\F429ZG_MasterNetz\Core\ioLibrary_Driver\Ethernet&quot;"/>

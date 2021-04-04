@@ -58,9 +58,6 @@ PUTCHAR_PROTOTYPE
 
 
 
-
-
-
 #define SOCK_TCPS        0
 #define SOCK_UDPS        1
 /* USER CODE END PD */
@@ -74,9 +71,9 @@ PUTCHAR_PROTOTYPE
 
 /* USER CODE BEGIN PV */
 wiz_NetInfo gWIZNETINFO = { .mac = {0x00, 0x01, 0x02, 0x03, 0x04, 0x05},
-                            .ip = {192, 168, 1, 88},
+                            .ip = {192, 168, 0, 188},
                             .sn = {255, 255, 255, 0},
-                            .gw = {192, 168, 1, 1},
+                            .gw = {192, 168, 0, 1},
                             .dns = {8, 8, 8, 8},
                             .dhcp = NETINFO_STATIC };
 
@@ -100,15 +97,7 @@ void SystemClock_Config(void);
 //void W5500_WriteByte(uint8_t byte);
 //void network_init(void);
 
-uint8_t W5500_ReadByte(void) {
-  uint8_t byte;
-  W5500_ReadBuff(&byte, sizeof(byte));
-  return byte;
-}
 
-void W5500_WriteByte(uint8_t byte) {
-  W5500_WriteBuff(&byte, sizeof(byte));
-}
 
 void W5500_Select(void) {
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET); //CS LOW
@@ -119,11 +108,20 @@ void W5500_Unselect(void) {
 }
 
 void W5500_ReadBuff(uint8_t* buff, uint16_t len) {
-  HAL_SPI_Receive(&hspi1, buff, len, HAL_MAX_DELAY);
+  HAL_SPI_Receive(&hspi5, buff, len, HAL_MAX_DELAY);
 }
 
 void W5500_WriteBuff(uint8_t* buff, uint16_t len) {
-  HAL_SPI_Transmit(&hspi1, buff, len, HAL_MAX_DELAY);
+  HAL_SPI_Transmit(&hspi5, buff, len, HAL_MAX_DELAY);
+}
+uint8_t W5500_ReadByte(void) {
+  uint8_t byte;
+  W5500_ReadBuff(&byte, sizeof(byte));
+  return byte;
+}
+
+void W5500_WriteByte(uint8_t byte) {
+  W5500_WriteBuff(&byte, sizeof(byte));
 }
 //uint8_t spi_rb(void) {
 //	uint8_t rbuf;
@@ -251,7 +249,7 @@ network_init();
      
 //    DHT_data d = DHT_getData(DHT22);
 //     printf("Temp: %2.1f \r\n", d.temp );
- 
+//
 		if( (retr = loopback_tcps(SOCK_TCPS, gDATABUF, 5000)) < 0) {
     printf("SOCKET ERROR : %ld\r\n", retr);
   }
@@ -279,7 +277,7 @@ void SystemClock_Config(void)
   /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -287,8 +285,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 192;
+  RCC_OscInitStruct.PLL.PLLM = 25;
+  RCC_OscInitStruct.PLL.PLLN = 168;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 4;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -301,10 +299,10 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV4;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }

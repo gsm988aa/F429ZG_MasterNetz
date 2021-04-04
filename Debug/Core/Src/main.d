@@ -30,10 +30,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h \
  C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h \
  C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h \
- C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h \
  C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/socket.h \
  C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h \
- C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Application/loopback/loopback.h
+ ../Core/ioLibrary_Driver/Application/loopback/loopback.h
 
 ../Core/Inc/main.h:
 
@@ -105,10 +104,8 @@ C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/
 
 C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h:
 
-C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/W5500/w5500.h:
-
 C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/socket.h:
 
 C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Ethernet/wizchip_conf.h:
 
-C:/Users/Administrator/Desktop/F429ZG_MasterNetz/Core/ioLibrary_Driver/Application/loopback/loopback.h:
+../Core/ioLibrary_Driver/Application/loopback/loopback.h:
